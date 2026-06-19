@@ -14,6 +14,13 @@ jobs:
         with:
           node-version: '20'
 
+      - name: Set App Service Settings
+        run: |
+          az webapp config appsettings set \
+            --name 'WebApp-001' \
+            --resource-group sandbox \
+            --settings NEXT_PUBLIC_KEY='${{ secrets.KEY }}' 
+
       - name: Install and Build
         run: |
           npm install
