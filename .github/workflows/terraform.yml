@@ -18,6 +18,10 @@ jobs:
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
 
+      - name: Configure Git for private modules
+        run: |
+          git config --global url."https://x-access-token:${{ secrets.INFRA_REPO_PAT }}@github.com/".insteadOf "https://github.com/"
+
       - name: Terraform Init
         env:
           TF_VAR_github_token: ${{ secrets.INFRA_REPO_PAT }}
