@@ -12,7 +12,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '24-lts'
+          node-version: '24'
 
       # 追加: Azure CLI用のログイン処理
       - name: Azure Login
