@@ -22,6 +22,6 @@ module "azure_webapp" {
 
   app_name         = "my-cool-app"
   runtime_stack    = "node"
-  runtime_version  = "20-lts"
+  runtime_version  = "24-lts"
   app_command_line = "npx next start"
 }
