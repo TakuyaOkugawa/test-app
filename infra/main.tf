@@ -18,7 +18,7 @@ variable "github_token" {
 }
 
 module "azure_webapp" {
-  source = "git::https://x-access-token:${var.github_token}@github.com/TakuyaOkugawa/my-infra-repo.git//?ref=main"
+  source = "git::https://github.com/TakuyaOkugawa/my-infra-repo.git//?ref=main"
 
   app_name         = "my-cool-app"
   runtime_stack    = "node"
