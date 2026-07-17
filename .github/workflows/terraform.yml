@@ -26,3 +26,17 @@ jobs:
         run: |
           cd infra
           terraform init
+
+      - name: Terraform Plan
+        env:
+          TF_VAR_github_token: ${{ secrets.INFRA_REPO_PAT }}
+        run: |
+          cd infra
+          terraform plan -out=tfplan
+
+      - name: Terraform Apply
+        env:
+          TF_VAR_github_token: ${{ secrets.INFRA_REPO_PAT }}
+        run: |
+          cd infra
+          terraform apply -auto-approve tfplan
