@@ -34,7 +34,7 @@ jobs:
           cd infra
           terraform plan -out=tfplan
 
-      - name: Terraform Apply
+      - name: Terraform Action
         env:
           TF_VAR_github_token: ${{ secrets.INFRA_REPO_PAT }}
         run: |
