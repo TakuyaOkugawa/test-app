@@ -14,10 +14,16 @@ jobs:
         with:
           node-version: '20'
 
+      # 追加: Azure CLI用のログイン処理
+      - name: Azure Login
+        uses: azure/login@v3
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
       - name: Set App Service Settings
         run: |
           az webapp config appsettings set \
-            --name 'WebApp-001' \
+            --name 'app-my-cool-app' \
             --resource-group sandbox \
             --settings NEXT_PUBLIC_KEY='${{ secrets.KEY }}' 
 
@@ -29,6 +35,6 @@ jobs:
       - name: Deploy to Azure
         uses: azure/webapps-deploy@v3
         with:
-          app-name: 'WebApp-001'
+          app-name: 'app-my-cool-app'
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
           package: .
