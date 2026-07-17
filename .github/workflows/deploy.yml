@@ -26,6 +26,7 @@ jobs:
             --name 'app-my-cool-app' \
             --resource-group sandbox \
             --settings NEXT_PUBLIC_KEY='${{ secrets.KEY }}' 
+            SCM_DO_BUILD_DURING_DEPLOYMENT=true
 
       - name: Install and Build
         run: |
