@@ -20,7 +20,7 @@ variable "github_token" {
 module "azure_webapp" {
   source = "git::https://github.com/TakuyaOkugawa/my-infra-repo.git//?ref=main"
 
-  app_name         = "my-cool-app"
+  app_name         = "test"
   runtime_stack    = "node"
   runtime_version  = "24-lts"
   app_command_line = "npx next start"
